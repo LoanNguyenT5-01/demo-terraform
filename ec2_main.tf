@@ -30,12 +30,12 @@ resource "aws_security_group" "ec2_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]  # Cho phép tất cả outgoing traffic
+    cidr_blocks = ["0.0.0.0/0"]  
   }
 }
 
 resource "aws_instance" "ec2_instance" {
-  ami           = "ami-06650ca7ed78ff6fa"  # Chọn AMI cho Ubuntu hoặc Amazon Linux
+  ami           = "ami-06650ca7ed78ff6fa"  
   instance_type = "t2.micro"
   key_name      = aws_key_pair.key_pair.key_name
   security_groups = [aws_security_group.ec2_sg.name]
